@@ -1,0 +1,32 @@
+name: Testing react app
+on: push
+jobs:
+  test_my_app:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get repo code
+        uses: actions/checkout@v3
+      - name: Install deps
+        run : npm ci
+      - name: Test app
+        run : npm run test
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get repo code
+        uses: actions/checkout@v3
+      - name: Install deps
+        run : npm ci
+      - name: Test app
+        run : npm run lint
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get repo code
+        uses: actions/checkout@v3
+      - name: Install deps
+        run : npm ci
+      - name: Test app
+        run : npm run build
+      - name: Deploy
+        run: echo Deploying...
