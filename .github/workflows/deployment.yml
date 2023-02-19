@@ -10,25 +10,9 @@ jobs:
         run : npm ci
       - name: Test app
         run : npm run test
-  lint:
-    runs-on: ubuntu-latest
-    needs: test_my_app
-    steps:
-      - name: Get repo code
-        uses: actions/checkout@v3
-      - name: Install deps
-        run : npm ci
-      - name: Test app
+      - name: Lint app
         run : npm run lint
-  build:
-    runs-on: ubuntu-latest
-    needs: lint
-    steps:
-      - name: Get repo code
-        uses: actions/checkout@v3
-      - name: Install deps
-        run : npm ci
-      - name: Test app
+      - name: Build app
         run : npm run build
       - name: Deploy
         run: echo Deploying...
